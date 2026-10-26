@@ -1,0 +1,7 @@
+__pycache__/
+*.pkl
+*.zip
+*.jsonl
+*.log
+venv/
+.DS_Store
