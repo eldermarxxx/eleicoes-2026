@@ -9,12 +9,11 @@ Não confiar nos números do TSE: quando possível, refazer a conta a partir dos
 (boletim de urna, registro digital do voto, log) e comparar com o total divulgado.
 
 ## Resultado principal até agora
-Boletins de urna (BU) de **cerca de 40 mil urnas** sorteadas ao acaso no país, decodificados com a especificação
-ASN.1 oficial, dão **Lula 51,79%** dos votos de Lula + Flávio (intervalo de 95%: 51,63% a 51,95%).
-O resultado oficial é **51,79%**. Sem Roraima, que entrou inteiro no teste e distorceria a média.
+Boletins de urna (BU) de **381.728 urnas (cerca de 76% das seções)**, lidos em ordem aleatória e decodificados com a
+especificação ASN.1 oficial, dão **Lula 51,77%** dos votos de Lula + Flávio. O resultado oficial é **51,79%**.
 
 Conclusão defensável: a soma do TSE corresponde ao que as urnas registraram, na amostra testada.
-**Não é uma recontagem completa.** A varredura de todas as seções (cerca de 517 mil) está em andamento, e este
+**Não é uma recontagem completa.** A varredura de todas as seções (cerca de 517 mil) está em andamento (76% lidas), e este
 repositório será atualizado com os números finais.
 
 ## O que foi testado
@@ -27,9 +26,9 @@ mais forte. Resumo:
 - Logs de urna: votos depois das 17h são 0,03%; depois das 19h, praticamente nenhum; nenhum intervalo abaixo de
   10 segundos entre dois votos; nenhum voto sem eleitor habilitado.
 - Voto rápido e voto sem biometria **não** acompanham a virada de Lula seção a seção.
-- **Achado real, pequeno:** pelo menos 4 urnas votaram com um código de carga que não consta em nenhuma versão da
-  tabela pública de correspondência esperada. Foi tratado como falha de registro de custódia a ser perguntada
-  ao TSE, e não como fraude (somam menos de mil votos).
+- **Achado real, pequeno:** em 43 de 381 mil urnas (0,011%) o código de carga gravado pela própria urna não consta em
+  nenhuma versão da tabela pública de correspondência esperada. Somam 10,5 mil votos (59% Lula, contra 56% nas mesmas
+  seções no 1º turno). Tratado como falha de registro de custódia a ser perguntada ao TSE, e não como fraude.
 
 ## Limites (leia antes de citar)
 - Parcial. O ranking e os números mudam conforme a varredura avança.

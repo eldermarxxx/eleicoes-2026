@@ -72,26 +72,24 @@ Script: `custodia2t.py` (varredura) e `secao2t.py` (dossiê de uma seção, com 
 - Intervalo mínimo entre dois votos na mesma urna: 19s (nenhum caso abaixo de 10s).
 - Log x BU no comparecimento: 16 divergências, que são urnas trocadas durante o dia (o log publicado é da urna final).
 
-### Varredura total (parcial: 41.090 urnas, cerca de 8%, ordem aleatória)
-- **Recontagem pelos BUs, sem RR** (RR entrou inteiro no teste): **Lula 51,79%** dos votos de Lula+Flávio;
-  IC95% de 51,63 a 51,95. **Oficial: 51,79%.**
-- SHA-512 fora do manifesto assinado: 0. Voto sem habilitação: 0. Intervalo <10s entre votos: 0.
-- **Urnas que votaram com código de carga ausente das tabelas oficiais de 24/10 e de 25/10:**
-
-| Seção | Carga da urna (segundo o próprio log) | 2º turno | 1º turno (mesma seção) |
-|---|---|---|---|
-| Laranjal do Jari-AP z7 s19 (amostra) | 24/10, véspera | L129 x F104 | L132 x F129 |
-| Ananindeua-PA z107 s341 | 15/10, entre os turnos | L175 x F152 | L155 x F142 |
-| Salvador-BA z8 s606 | 24/10, véspera | L260 x F82 | L194 x F78 |
-| São Luís-MA z1 s125 | 28/09; votou no 1º turno | L218 x F79 | L191 x F80 |
-
-  São cerca de 3 em 41 mil urnas, o que daria uns 35 no país. Somam menos de mil votos, com virada parecida com a média.
-  É falha de registro de custódia, a ser perguntada ao TSE; não muda o resultado.
-- Verificação de assinatura com ERRO: 18 urnas, quase todas em `infomidia.vsc` durante a carga (setembro),
-  e 1 no dia 25/10 (arquivo de voz do sintetizador). Ainda não conferido se houve nova verificação com sucesso.
-- Relógio com data futura (26/10/2026 a 25/09/2029): 19 urnas, cerca de 64 linhas cada, todas também com 25/10.
-  O padrão é de relógio ajustado errado num ligamento de teste.
-- Votos depois das 19h: 2 (SP, 19h00min25s e 19h00min57s; eleitores que estavam na fila).
+### Varredura total (parcial: 381.728 urnas com BU lido, cerca de 76% das seções, em ordem aleatória)
+- **Recontagem pelos BUs: Lula 51,77%** dos votos de Lula+Flávio (49.123.139 x 45.762.420). **Oficial: 51,79%.**
+  (Numa leitura anterior, com 40 mil urnas e sem Roraima, deu 51,79%.)
+- SHA-512 fora do manifesto assinado: **0**. Voto sem habilitação: **0**. Intervalo <10s entre votos: **0**.
+- Correlação, dentro da UF, de voto rápido (<8s) com a virada de Lula: +0,04; de voto sem biometria: -0,03.
+- Votos depois das 17h: 26.198 de 97,9 milhões (0,027%). Depois das 19h: 9.
+- Log x BU no comparecimento: 1.117 divergências (0,3%), compatíveis com urnas trocadas durante o dia
+  (o log publicado é o da urna final). 2.037 urnas votaram como contingência registrada na tabela oficial.
+- **Urnas cujo código de carga não consta em nenhuma tabela oficial (24/10 e 25/10): 43** (0,011% das lidas).
+  Somam 6.198 votos de Lula e 4.315 de Flávio (59% x 41%); nas mesmas seções no 1º turno foram 5.495 x 4.246 (56% x 44%).
+  Distribuição: AP, PA, SE, BA, MG, MA, SP, PR, AC, MT. Sem padrão evidente de partido ou voto; é falha de registro de custódia,
+  a ser perguntada ao TSE. Observação: 6 urnas da zona 2 de Aracaju-SE, todas ligadas por um mesmo computador de carga (RSEWGM04),
+  trazem 2 a 4 códigos de carga no histórico, o que indica reposições sucessivas.
+- Verificação de assinatura com ERRO nos logs: 101 urnas (quase todas em arquivos da mídia durante a carga, em setembro).
+  Não foi conferido se houve nova verificação com sucesso.
+- Relógio com data futura (26/10/2026 em diante): dezenas de urnas, em ligamentos de teste; todas também votaram em 25/10.
+- Seções com arquivos ainda não publicados ("Recebida" em vez de "Totalizada"): 17.271 de 395 mil lidas (4,4%). O BU
+  delas existe e foi lido e somado; falta confirmar contra o total oficial quando a varredura terminar.
 
 ## O que ainda NÃO foi testado (os testes mais fortes)
 
