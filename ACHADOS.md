@@ -87,6 +87,13 @@ Script: `custodia2t.py` (varredura) e `secao2t.py` (dossiê de uma seção, com 
 - Relógio voltou no dia: 101 urnas. Datas futuras (26/10 a 31/10) em dezenas de urnas, em ligamentos de teste.
 - Status no índice: 478.154 "Totalizada", 21.053 "Recebida" (o BU foi lido e somado e o total fechou), 41 "Não instalada", 108 sem arquivo (404).
 
+### Seções "sinalizadas" (≥1 voto sem biometria após 17h) x demais da mesma zona
+Critério sugerido pela análise independente de samuraitrc (<https://github.com/samuraitrc/eleicoes-2026-analises>), aplicado aos BUs de todas as seções. Script: `scripts/teste_sinalizadas.py`.
+- 5.444 seções sinalizadas (ele achou 5.244; método de fuso diferente), 2.070 zonas com controles. Somam **5.699 votos** sem biometria após 17h.
+- Virada de Lula (2º menos 1º turno) nas sinalizadas menos controles da mesma zona: **+0,12 p.p.** (IC95% +0,06 a +0,18). Efeito minúsculo: cerca de 1,8 mil votos líquidos sobre 1,5 milhão de votos dessas seções.
+- Dose-resposta: mais votos sem biometria após 17h não dá mais virada (correlação -0,06).
+- Mesmo que todos os 5.699 votos fossem de Lula, seriam 0,1% da margem de 4,43 milhões.
+
 ## O que ainda NÃO foi testado (os testes mais fortes)
 
 1. **Fotos dos boletins impressos (QR code) x arquivos publicados.** É o único teste 100% fora do TSE. Precisa de fotos de fiscais e eleitores.
