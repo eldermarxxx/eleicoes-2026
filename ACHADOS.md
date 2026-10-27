@@ -1,6 +1,6 @@
 # Auditoria independente – Eleição presidencial 2026 (2º turno)
 
-**Status: parcial e preliminar** (atualizado em 26/10/2026). Os números abaixo mudam conforme a varredura avança.
+**Status: varredura completa concluída** (26/10/2026). Os números do 2º turno fecham com o oficial.
 Nada aqui é prova de fraude nem de ausência de fraude; veja os limites no [README](README.md).
 
 Premissa: não confiar no TSE. Cada teste diz de qual dado depende.
@@ -72,30 +72,26 @@ Script: `custodia2t.py` (varredura) e `secao2t.py` (dossiê de uma seção, com 
 - Intervalo mínimo entre dois votos na mesma urna: 19s (nenhum caso abaixo de 10s).
 - Log x BU no comparecimento: 16 divergências, que são urnas trocadas durante o dia (o log publicado é da urna final).
 
-### Varredura total (parcial: 381.728 urnas com BU lido, cerca de 76% das seções, em ordem aleatória)
-- **Recontagem pelos BUs: Lula 51,77%** dos votos de Lula+Flávio (49.123.139 x 45.762.420). **Oficial: 51,79%.**
-  (Numa leitura anterior, com 40 mil urnas e sem Roraima, deu 51,79%.)
+### Varredura total (COMPLETA: 499.207 BUs lidos de 517.179 seções; 17.823 agregadas)
+- **Recontagem pelos BUs: Lula 64.256.232 e Flávio 59.826.041. Oficial: idêntico, diferença zero.** (51,79%)
+- Brancos 1.430.496; nulos 2.723.305.
 - SHA-512 fora do manifesto assinado: **0**. Voto sem habilitação: **0**. Intervalo <10s entre votos: **0**.
-- Correlação, dentro da UF, de voto rápido (<8s) com a virada de Lula: +0,04; de voto sem biometria: -0,03.
-- Votos depois das 17h: 26.198 de 97,9 milhões (0,027%). Depois das 19h: 9.
-- Log x BU no comparecimento: 1.117 divergências (0,3%), compatíveis com urnas trocadas durante o dia
-  (o log publicado é o da urna final). 2.037 urnas votaram como contingência registrada na tabela oficial.
-- **Urnas cujo código de carga não consta em nenhuma tabela oficial (24/10 e 25/10): 43** (0,011% das lidas).
-  Somam 6.198 votos de Lula e 4.315 de Flávio (59% x 41%); nas mesmas seções no 1º turno foram 5.495 x 4.246 (56% x 44%).
-  Distribuição: AP, PA, SE, BA, MG, MA, SP, PR, AC, MT. Sem padrão evidente de partido ou voto; é falha de registro de custódia,
-  a ser perguntada ao TSE. Observação: 6 urnas da zona 2 de Aracaju-SE, todas ligadas por um mesmo computador de carga (RSEWGM04),
-  trazem 2 a 4 códigos de carga no histórico, o que indica reposições sucessivas.
-- Verificação de assinatura com ERRO nos logs: 101 urnas (quase todas em arquivos da mídia durante a carga, em setembro).
-  Não foi conferido se houve nova verificação com sucesso.
-- Relógio com data futura (26/10/2026 em diante): dezenas de urnas, em ligamentos de teste; todas também votaram em 25/10.
-- Seções com arquivos ainda não publicados ("Recebida" em vez de "Totalizada"): 17.271 de 395 mil lidas (4,4%). O BU
-  delas existe e foi lido e somado; falta confirmar contra o total oficial quando a varredura terminar.
+- Correlação, dentro da UF, de voto rápido (<8s) com a virada de Lula: +0,044; de voto sem biometria: -0,035.
+- Votos depois das 17h: 34.221 de 128,1 milhões (0,027%). Depois das 19h: 11.
+- Log x BU no comparecimento: 1.435 divergências (0,3%), compatíveis com urnas trocadas durante o dia. 2.631 urnas votaram como contingência registrada.
+- **Urnas cujo código de carga não consta em nenhuma tabela oficial: 51** (0,010%). Somam 7.231 votos de Lula e 5.346 de Flávio (57,5% x 42,5%);
+  nas mesmas seções no 1º turno: 6.395 x 5.257 (54,9% x 45,1%). Estão em AP, PA, SE, BA, MG, MA, SP, PR, AC, MT, RO, sem padrão de partido.
+  Falha de registro de custódia, a ser perguntada ao TSE. Impacto máximo: ordem de 1 mil votos de diferença, contra margem de 4,43 milhões.
+  Observação: 7 urnas de Aracaju-SE (zona 2) ligadas ao mesmo computador de carga (RSEWGM04) têm 2 a 4 códigos de carga no histórico; pergunta para o TSE, não acusação.
+- Verificação de assinatura com ERRO nos logs: 125 urnas (quase todas na carga, em setembro). Não conferido se houve nova verificação com sucesso.
+- Relógio voltou no dia: 101 urnas. Datas futuras (26/10 a 31/10) em dezenas de urnas, em ligamentos de teste.
+- Status no índice: 478.154 "Totalizada", 21.053 "Recebida" (o BU foi lido e somado e o total fechou), 41 "Não instalada", 108 sem arquivo (404).
 
 ## O que ainda NÃO foi testado (os testes mais fortes)
 
 1. **Fotos dos boletins impressos (QR code) x arquivos publicados.** É o único teste 100% fora do TSE. Precisa de fotos de fiscais e eleitores.
 2. **Verificação criptográfica completa do 2º turno** (assinatura digital e certificados, e recontagem do RDV). A ferramenta DataUrnas-BR fez isso no 1º turno, sem divergência.
-3. **Todas as seções do 2º turno.** A varredura de cerca de 517 mil seções está em andamento (mais da metade lida).
+3. ~~Todas as seções do 2º turno~~ **Feito**: recontagem completa idêntica ao oficial.
 4. **Modelo de urna dentro do mesmo local de votação**, para a hipótese de adulteração no software.
 5. **Aglomerado do sul do MS, seção por seção.**
 6. **Para onde foram os eleitores da terceira via.** Precisa de pesquisa pós-eleitoral.

@@ -8,13 +8,14 @@ Nada aqui é prova de fraude, e nada aqui é prova de ausência de fraude. Veja 
 Não confiar nos números do TSE: quando possível, refazer a conta a partir dos arquivos que cada urna gera e assina
 (boletim de urna, registro digital do voto, log) e comparar com o total divulgado.
 
-## Resultado principal até agora
-Boletins de urna (BU) de **381.728 urnas (cerca de 76% das seções)**, lidos em ordem aleatória e decodificados com a
-especificação ASN.1 oficial, dão **Lula 51,77%** dos votos de Lula + Flávio. O resultado oficial é **51,79%**.
+## Resultado principal (varredura completa)
+Boletins de urna (BU) de **499.207 urnas** (todas as seções com arquivo publicado; 17.823 são seções agregadas, sem urna própria),
+decodificados com a especificação ASN.1 oficial, somam **Lula 64.256.232 e Flávio Bolsonaro 59.826.041**.
+**Os dois números são idênticos aos totais oficiais do TSE, voto a voto.**
 
-Conclusão defensável: a soma do TSE corresponde ao que as urnas registraram, na amostra testada.
-**Não é uma recontagem completa.** A varredura de todas as seções (cerca de 517 mil) está em andamento (76% lidas), e este
-repositório será atualizado com os números finais.
+Conclusão defensável: o total divulgado corresponde exatamente ao que as urnas registraram nos arquivos públicos.
+Limite: 108 seções listadas deram 404 e 41 constam como "Não instalada"; o fato de o total fechar no voto indica que não pesam no resultado.
+Não verificamos a assinatura digital em si (veja Limites).
 
 ## O que foi testado
 Todos os testes, inclusive os que não deram em nada, estão em [ACHADOS.md](ACHADOS.md), do indício mais fraco ao
@@ -26,8 +27,8 @@ mais forte. Resumo:
 - Logs de urna: votos depois das 17h são 0,03%; depois das 19h, praticamente nenhum; nenhum intervalo abaixo de
   10 segundos entre dois votos; nenhum voto sem eleitor habilitado.
 - Voto rápido e voto sem biometria **não** acompanham a virada de Lula seção a seção.
-- **Achado real, pequeno:** em 43 de 381 mil urnas (0,011%) o código de carga gravado pela própria urna não consta em
-  nenhuma versão da tabela pública de correspondência esperada. Somam 10,5 mil votos (59% Lula, contra 56% nas mesmas
+- **Achado real, pequeno:** em 51 de 499 mil urnas (0,010%) o código de carga gravado pela própria urna não consta em
+  nenhuma versão da tabela pública de correspondência esperada. Somam 12,6 mil votos (57,5% Lula, contra 54,9% nas mesmas
   seções no 1º turno). Tratado como falha de registro de custódia a ser perguntada ao TSE, e não como fraude.
 
 ## Limites (leia antes de citar)
